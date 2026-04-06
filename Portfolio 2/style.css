@@ -1,0 +1,173 @@
+/* ── Reset & Base ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f5ebe0;
+    color: #3b2f2f;
+    line-height: 1.7;
+  overflow-y: scroll;
+}
+
+
+/* ── Header & Nav ── */
+header {
+    background-color: #6b3f2a;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 40px,
+            rgba(0,0,0,0.03) 40px,
+            rgba(0,0,0,0.03) 80px
+        ),
+        repeating-linear-gradient(
+            180deg,
+            transparent,
+            transparent 4px,
+            rgba(255,255,255,0.02) 4px,
+            rgba(255,255,255,0.02) 8px
+        );
+    padding: 0 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+    border-bottom: 3px solid #4a2a18;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    height: 55px;
+}
+
+nav a {
+    color: #f5deb3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 7px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #4a2a18;
+    color: #fff8ee;
+}
+
+
+h1 {
+    background-color: #3b2f2f;
+    background-image:
+        repeating-linear-gradient(
+            92deg,
+            transparent,
+            transparent 60px,
+            rgba(255,255,255,0.015) 60px,
+            rgba(255,255,255,0.015) 120px
+        );
+    color: #f5deb3;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 4px solid #6b3f2a;
+}
+
+
+.profile-img {
+    width: 100%;
+    max-width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 4px solid #a0522d;
+    
+
+}
+
+.resume-img {
+    width: 100%;
+    max-width: 500px;
+    height: 600px;  
+    display: block;
+    margin: 0 auto;
+    border-bottom: 4px solid #a0522d;
+    }
+
+
+
+/* ── H2 – Subheading ── */
+h2 {
+    background-color: #a0522d;
+    color: #fff8ee;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 20px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 3px solid #6b3f2a;
+    margin-bottom: 40px;
+}
+
+/* ── Content Wrapper ── */
+main, .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ── Paragraphs ── */
+p {
+    font-size: 16px;
+    color: #4a3728;
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    padding: 0 20px;
+}
+
+/* ── Blockquote ── */
+blockquote {
+    border-left: 5px solid #a0522d;
+    background-color: #ecdccc;
+    padding: 18px 24px;
+    margin: 36px auto;
+    max-width: 860px;
+    font-style: italic;
+    font-size: 20px;
+    color: #3b2f2f;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+blockquote p {
+    margin: 0;
+    padding: 0;
+}
+
+
+footer {
+    background-color: #3b2f2f;
+    color: #c4a882;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    margin-top: 60px;
+    letter-spacing: 1px;
+    border-top: 3px solid #6b3f2a;
+}

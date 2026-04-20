@@ -1,52 +1,206 @@
-
-<html>
-    
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easton Heroux</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Scroll fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    <title>
-        About Me
-    </title>
+  /* CTA buttons */
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+  }
+  .cta-btn-primary {
+    background-color: #6b3f2a;
+    color: #f5deb3;
+    border: 2px solid #6b3f2a;
+  }
+  .cta-btn-primary:hover {
+    background-color: #4a2a18;
+    color: #f5deb3;
+    transform: translateY(-2px);
+  }
+  .cta-btn-secondary {
+    background-color: transparent;
+    color: #6b3f2a;
+    border: 2px solid #6b3f2a;
+  }
+  .cta-btn-secondary:hover {
+    background-color: #6b3f2a;
+    color: #f5deb3;
+    transform: translateY(-2px);
+  }
 
- </head>
-
- <body>
-
- 
-
+  /* Recent Work */
+  .recent-work-section {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 0 16px;
+  }
+  .recent-work-section h3 {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6b3f2a;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #6b3f2a;
+    padding-bottom: 8px;
+  }
+  .work-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .work-card {
+    background-color: #fff9f2;
+    border: 1px solid #d9c4a8;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .work-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(107, 63, 42, 0.12);
+  }
+  .work-type-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .badge-event { background-color: #f5deb3; color: #6b3f2a; }
+  .badge-broadcast { background-color: #d9ead3; color: #2d5a27; }
+  .work-card h4 { font-size: 16px; font-weight: bold; color: #3a1f0f; margin-bottom: 8px; }
+  .work-card p { font-size: 14px; color: #5a4030; line-height: 1.6; margin-bottom: 0; }
+  .work-card-footer { margin-top: 14px; font-size: 12px; color: #9a7a65; text-transform: uppercase; letter-spacing: 0.5px; }
+</style>
+</head>
+<body>
 <header>
-        <link rel="stylesheet" href="../style.css">
- <nav>
-
-    <a href="../index.html">Home</a> 
-    |
-    <a href="../about/index.html">About Me</a> 
-    |
-    <a href="../work/index.html">My Work</a> 
-    |
-    <a href="../resume/index.html">Resume</a>
-
+<nav class="navbar" style="padding: 0;">
+<div class="container-fluid" style="padding: 0;">
+  <svg fill="#f5f2f2" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 11.414v12.586h-20v-12.586l-1.293 1.293-.707-.707 12-12 12 12-.707.707-1.293-1.293zm-6 11.586h5v-12.586l-9-9-9 9v12.586h5v-9h8v9zm-1-7.889h-6v7.778h6v-7.778z"/></svg>
+<a class="navbar-brand" href="index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Easton Heroux</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: #f5deb3;">
+<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+</button>
+<div class="collapse navbar-collapse w-auto" id="navbarNav">
+<ul class="navbar-nav ms-auto px-3 py-2 rounded" style="background-color: #6b3f2a; border: 1px solid #4a2a18;">
+<li class="nav-item"><a class="nav-link" href="index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="about/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">About Me</a></li>
+<li class="nav-item"><a class="nav-link" href="work/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">My Work</a></li>
+<li class="nav-item"><a class="nav-link" href="resume/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Resume</a></li>
+</ul>
+</div>
+</div>
 </nav>
-
 </header>
 
+<img class="profile-img" src="me-pic.jpeg" alt="Easton in Suit" height="300">
+<h1>Easton Heroux</h1>
+<h2>Broadcast & Digital Journalism Student | Syracuse University</h2>
 
-    <h1>
-        About Me
-    </h1>
+<div class="container text-center">
+<div class="row">
+<div class="col-sm-5">
+<blockquote class="fade-in" style="font-size: 18px; font-style: italic; color: #6b3f2a; margin-top: 20px;">
+  "Passionate about storytelling, sports media, and bringing compelling stories to life through video, audio, and digital content."
+</blockquote>
+</div>
+<div class="col-sm-7">
+<p class="fade-in">
+  Welcome to my portfolio. I'm Easton Heroux, a sophomore at the S.I. Newhouse School
+  of Public Communications at Syracuse University, studying Broadcast and Digital Journalism
+  with a minor in Sport Management. I'm passionate about storytelling, sports media, and
+  bringing compelling stories to life through video, audio, and digital content.
+</p>
+</div>
+</div>
+</div>
 
-    <h2>
-        Broadcast Journalism Major at Syracuse University with a Minor in Sport Management
-    </h2>
+<p class="fade-in">
+  Beyond the classroom, I serve as a Manager for the Syracuse University Men's Soccer Team,
+  where I support day-to-day operations and gain firsthand experience in collegiate athletics.
+  I'm also an active member of WAER, Syracuse's award-winning radio station, where I develop
+  my on-air presence and sharpen my skills in sports broadcasting and journalism.
+</p>
+<p class="fade-in">
+  Whether it's behind a microphone at WAER, on the sidelines with the Orange soccer program,
+  or working on my next story, I'm always looking for ways to grow as a journalist and storyteller.
+</p>
 
-    <p>
-        My name is Easton Heroux, and I'm a sophomore at Syracuse University studying Broadcast Journalism with a minor in Sport Management. I grew up in Middletown, Rhode Island, where my love for sports really took shape. That passion is ultimately what led me to pursue a career in the sports industry.
-I chose Syracuse for its renowned journalism program and its rich athletic tradition, and so far it's been a great fit. I've been able to build some real experience through internships and extracurricular activities, and I'm looking forward to continuing to grow and develop as I work toward my goals in the industry.
-    </p>
+<!-- CTA Buttons -->
+<div class="cta-buttons fade-in">
+  <a href="work/index.html" class="cta-btn cta-btn-primary">View My Work</a>
+  <a href="about/index.html" class="cta-btn cta-btn-secondary">Get in Touch</a>
+</div>
 
-    <p>
-Outside of the classroom, I keep pretty busy. I serve as a manager for the men's soccer team, broadcast for Le Moyne Athletics, and work the talk desk at WAER. I'm also the president of the club pickleball team, which has been a fun way to stay connected to the sports world outside of my more professional roles. Through all of these experiences, I've been able to build some real hands-on experience, and I'm looking forward to continuing to grow as I work toward my goals in the industry.
-    </p>
+<!-- Recent Work Section -->
+<section class="recent-work-section fade-in">
+  <h3>Recent Work</h3>
+  <div class="work-cards">
 
+    <div class="work-card">
+      <span class="work-type-badge badge-event">Event</span>
+      <h4>Men's Soccer × Otto's Army</h4>
+      <p>Organized and hosted a fan engagement tournament between the Syracuse Men's Soccer team and Otto's Army, bringing players and the fan base together for a unique community event.</p>
+      <div class="work-card-footer">Syracuse University &nbsp;·&nbsp; Men's Soccer</div>
+    </div>
 
- </body>
+    <div class="work-card">
+      <span class="work-type-badge badge-broadcast">TV Broadcast</span>
+      <h4>LeMoyne Women's Lacrosse</h4>
+      <p>Served as TV play-by-play broadcaster for LeMoyne College Women's Lacrosse, calling live game action and delivering real-time commentary for the broadcast audience.</p>
+      <div class="work-card-footer">LeMoyne College &nbsp;·&nbsp; Play-by-Play</div>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+  // Scroll fade-in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>

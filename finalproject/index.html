@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Project – Public Transit Post-COVID NYC</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+  /* ── Override style.css max-widths to fill screen ── */
+  main, .content { max-width: 1400px; }
+  p               { max-width: 1400px; padding: 0 40px; font-size: 18px; }
+  blockquote      { max-width: 1400px; font-size: 22px; margin: 36px 40px; }
+
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    border: 2px solid #a0522d;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stat-box {
+    flex: 1 1 180px;
+    background-color: #ecdccc;
+    padding: 24px 20px;
+    text-align: center;
+    border-right: 1px solid #d5c0aa;
+  }
+  .stat-box:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #6b3f2a;
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: Georgia, serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #7a5c44;
+    font-style: normal;
+  }
+  .data-table {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    border-collapse: collapse;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    color: #4a3728;
+  }
+  .data-table thead tr {
+    background-color: #6b3f2a;
+    color: #f5deb3;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-family: Georgia, serif;
+  }
+  .data-table thead th {
+    padding: 12px 20px;
+    text-align: left;
+    font-weight: bold;
+    font-style: normal;
+  }
+  .data-table tbody tr { border-bottom: 1px solid #d5c0aa; transition: background-color 0.15s; }
+  .data-table tbody tr:nth-child(even) { background-color: #ecdccc; }
+  .data-table tbody tr:hover { background-color: #e4cfb8; }
+  .data-table td { padding: 13px 20px; font-style: italic; }
+  .data-table td:first-child { font-style: normal; font-weight: bold; color: #3b2f2f; }
+
+  .chart-wrap {
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    padding: 0 40px;
+  }
+  .iframe-wrap {
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    padding: 0 40px;
+  }
+  .legend {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px 12px 40px;
+    display: flex;
+    gap: 20px;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    color: #4a3728;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<header>
+  <nav class="navbar navbar-expand-lg" style="padding: 0;">
+    <div class="container-fluid" style="padding: 0;">
+      <a class="navbar-brand" href="../index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Easton Heroux</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: #f5deb3;">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse w-auto" id="navbarNav">
+        <ul class="navbar-nav ms-auto px-3 py-2 rounded" style="background-color: #6b3f2a; border: 1px solid #4a2a18;">
+          <li class="nav-item"><a class="nav-link" href="../index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="../work/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">My Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="../resume/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="../finalproject/index.html" style="color: #f5deb3; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Final Project</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ── TITLE ── -->
+<h1>Post Pandemic Transportation</h1>
+<h2>Public Transportation in New York City After COVID-19</h2>
+
+<!-- ── INTRO ── -->
+<main>
+  <p>
+    Before the pandemic, New York City's public transportation system carried nearly 8 million riders on an average weekday, making it one of the busiest transit networks in the world. Then in March of 2020, that number began to plummet due to the beginning of the Covid-19 Pandemic. This project uses MTA daily ridership data from March 2020 through January 2025 to examine how New York City's public transit system has recovered, how subway and bus ridership diverged in their recoveries, and what the numbers reveal about how the city itself has changed.
+  </p>
+</main>
+
+<!-- ── SECTION 1: THE COLLAPSE ── -->
+<h2>The Collapse (2020)</h2>
+
+<main>
+  <p>
+    When New York State issued its stay-at-home order on March 22, 2020, subway ridership fell to levels not seen since the system opened in 1904. By April 12, the lowest recorded day in the dataset, only 198,399 people rode the subway, compared to a pre-pandemic daily average of roughly 4.9 million. Nurses, grocery clerks, and sanitation workers became the MTA's only remaining passengers almost overnight. Buses told an even starker story. By May 2020, daily bus ridership had collapsed to just over 6,000 riders, a system that once moved hundreds of thousands of New Yorkers reduced to something closer to a quiet neighborhood shuttle. Across all of 2020, the subway averaged just 26% of its pre-pandemic ridership, and buses fared little better.
+  </p>
+</main>
+
+<div class="iframe-wrap">
+  <iframe title="Post Pandemic Fall Off of Public Transportation Use" aria-label="Line chart" id="datawrapper-chart-gtmen" src="https://datawrapper.dwcdn.net/gtmen/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="409" data-external="1"></iframe>
+  <script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+</div>
+
+<blockquote>
+  <p>
+    "It (the subway) felt like a ghost town compared to what I've been used to my entire life leading up to it (the pandemic)." - Matthew O'Hagan, New York Resident
+  </p>
+</blockquote>
+
+<!-- ── SECTION 2: UNEVEN RECOVERY ── -->
+<h2>An Uneven Recovery (2021–2023)</h2>
+
+<main>
+  <p>
+    Recovery was slow and uneven. The subway climbed from 26% of pre-pandemic ridership in 2020 to 46% in 2021, 61% in 2022, and 70% by 2023 — but never fully returned to its former baseline. Buses recovered faster than the subway in 2021, reaching 57% while the subway sat at 46%, but then stalled. By 2023, buses plateaued around 63–64% and actually declined slightly to 61% by 2024, while the subway continued its slow climb. The gap between them widened over time.
+  </p>
+</main>
+
+<div class="legend">
+  <span style="display: flex; align-items: center; gap: 6px;">
+    <span style="display: inline-block; width: 28px; height: 3px; background-color: #3bb8d4;"></span>
+    Subway
+  </span>
+  <span style="display: flex; align-items: center; gap: 6px;">
+    <span style="display: inline-block; width: 28px; height: 3px; background-color: #1a4a6b;"></span>
+    Bus
+  </span>
+</div>
+
+<div class="iframe-wrap">
+  <iframe title="Daily Ridership of Subway and Bus (2021)" aria-label="Line chart" id="datawrapper-chart-bD9Ek" src="https://datawrapper.dwcdn.net/bD9Ek/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="409" data-external="1"></iframe>
+  <script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+</div>
+
+<div class="iframe-wrap">
+  <iframe title="Daily Ridership of Subway and Bus (2022)" aria-label="Line chart" id="datawrapper-chart-A0A0s" src="https://datawrapper.dwcdn.net/A0A0s/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="409" data-external="1"></iframe>
+  <script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+</div>
+
+<div class="iframe-wrap">
+  <iframe title="Daily Ridership of Subway and Bus (2023)" aria-label="Line chart" id="datawrapper-chart-ifkOV" src="https://datawrapper.dwcdn.net/ifkOV/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="409" data-external="1"></iframe>
+  <script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+</div>
+
+<main>
+  <p>
+    By the end of 2023, a clear divergence had emerged between the two modes. The subway continued its gradual climb, averaging 70% of pre-pandemic ridership across the year and showing no signs of plateauing. Buses, however, told a different story. After peaking at roughly 63% recovery in 2022, bus ridership began to slip. By 2024, buses had fallen back to just 61% of their pre-pandemic baseline, nearly two percentage points below their peak. While the subway added roughly 380,000 daily riders between 2022 and 2024, buses actually lost ground, dropping by about 44,000 daily riders over the same period. The two systems, once tracking closely together, were now moving in opposite directions.
+  </p>
+</main>
+
+<!-- ── SECTION 3: THE BIG PICTURE ── -->
+<h2>The Big Picture — Where Things Stand Now</h2>
+
+<main>
+  <p>
+    Taken together, the subway and bus data paint a striking picture of how much ground NYC transit has yet to recover. Before the pandemic, the two systems combined for roughly 7.26 million daily riders. By 2024, that combined figure had only reached 4.38 million — just 60% of the 2019 baseline. That means nearly 2.88 million daily riders have not returned. The subway's continued climb to 72% contrasts sharply with buses, which have dipped back below their 2022 recovery peak, suggesting the two systems are on very different trajectories.
+  </p>
+</main>
+
+<div class="chart-wrap" style="margin-bottom: 60px;">
+  <div style="background-color: #fffaf5; border: 1.5px solid #c9a98a; border-radius: 6px; padding: 28px 28px 20px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px;">
+      <div style="background-color: #ecdccc; border: 1px solid #c9a98a; border-radius: 4px; padding: 12px 14px;">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #7a5c44; margin-bottom: 4px; font-family: Georgia, serif;">2019 Combined Baseline</div>
+        <div style="font-size: 22px; font-weight: bold; color: #3b2f2f; font-family: Georgia, serif;">7.26M</div>
+        <div style="font-size: 12px; margin-top: 2px; font-style: italic; color: #7a3f1e; font-family: Georgia, serif;">subway + bus daily avg</div>
+      </div>
+      <div style="background-color: #ecdccc; border: 1px solid #c9a98a; border-radius: 4px; padding: 12px 14px;">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #7a5c44; margin-bottom: 4px; font-family: Georgia, serif;">2024 Combined Avg</div>
+        <div style="font-size: 22px; font-weight: bold; color: #3b2f2f; font-family: Georgia, serif;">4.38M</div>
+        <div style="font-size: 12px; margin-top: 2px; font-style: italic; color: #7a3f1e; font-family: Georgia, serif;">60% of 2019</div>
+      </div>
+      <div style="background-color: #ecdccc; border: 1px solid #c9a98a; border-radius: 4px; padding: 12px 14px;">
+        <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #7a5c44; margin-bottom: 4px; font-family: Georgia, serif;">Gap to Recover</div>
+        <div style="font-size: 22px; font-weight: bold; color: #3b2f2f; font-family: Georgia, serif;">2.88M</div>
+        <div style="font-size: 12px; margin-top: 2px; font-style: italic; color: #7a3f1e; font-family: Georgia, serif;">riders per day</div>
+      </div>
+    </div>
+    <hr style="border: none; border-top: 1px solid #c9a98a; margin: 16px 0;">
+    <div style="display: flex; gap: 20px; margin-bottom: 14px; font-size: 13px; color: #5a3e2b; flex-wrap: wrap; align-items: center; font-family: Georgia, serif;">
+      <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 2px; background: #6b3f2a; flex-shrink: 0;"></span>Subway</span>
+      <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 12px; height: 12px; border-radius: 2px; background: #a0522d; flex-shrink: 0;"></span>Bus</span>
+      <span style="display: flex; align-items: center; gap: 6px;">
+        <svg width="26" height="12" style="flex-shrink:0;"><line x1="0" y1="6" x2="26" y2="6" stroke="#3b2f2f" stroke-width="2" stroke-dasharray="5,3"/></svg>
+        2019 baseline (7.26M)
+      </span>
+    </div>
+    <div style="position: relative; width: 100%; height: 340px;">
+      <canvas id="mtaChart" role="img" aria-label="Stacked bar chart of MTA combined subway and bus ridership 2020–2025 vs 2019 baseline"></canvas>
+    </div>
+    <p style="font-size: 11px; color: #8a6a52; font-style: italic; text-align: right; margin-top: 8px; padding: 0;">* 2025 is a partial year &nbsp;|&nbsp; Dashed line marks 2019 pre-pandemic combined baseline</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['2020','2021','2022','2023','2024','2025*'];
+const subway = [1209467, 2081672, 2773989, 3151280, 3262846, 3050982];
+const bus    = [481659,  1045583, 1161498, 1165862, 1117138, 986453];
+const baseline = 7264269;
+const fmt = v => (v / 1e6).toFixed(2) + 'M';
+new Chart(document.getElementById('mtaChart'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [
+      { label: 'Subway', data: subway, backgroundColor: '#6b3f2a', borderColor: '#4a2a18', borderWidth: 1, borderRadius: 0, stack: 'ridership', order: 2 },
+      { label: 'Bus', data: bus, backgroundColor: '#a0522d', borderColor: '#6b3f2a', borderWidth: 1, borderRadius: 3, stack: 'ridership', order: 2 },
+      { label: '2019 Baseline', data: Array(6).fill(baseline), type: 'line', borderColor: '#3b2f2f', borderDash: [6,4], borderWidth: 2.5, pointRadius: 0, fill: false, tension: 0, order: 1 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#3b2f2f', titleColor: '#f5deb3', bodyColor: '#f5ebe0', borderColor: '#6b3f2a', borderWidth: 1,
+        callbacks: {
+          afterBody: ctx => {
+            if (ctx[0].dataset.label === '2019 Baseline') return '';
+            const idx = ctx[0].dataIndex;
+            const combined = subway[idx] + bus[idx];
+            const pct = ((combined / baseline) * 100).toFixed(0);
+            return ['─────────────', `Combined: ${fmt(combined)} (${pct}% of 2019)`];
+          },
+          label: ctx => ctx.dataset.label === '2019 Baseline' ? '2019 baseline: 7.26M combined' : `${ctx.dataset.label}: ${fmt(ctx.raw)}`
+        }
+      }
+    },
+    scales: {
+      x: { stacked: true, grid: { display: false }, ticks: { color: '#7a5c44', font: { size: 12, family: 'Georgia, serif' }, autoSkip: false } },
+      y: { stacked: true, min: 0, max: 8000000, grid: { color: 'rgba(107,63,42,0.1)' }, ticks: { color: '#7a5c44', font: { size: 11, family: 'Georgia, serif' }, callback: v => (v / 1e6).toFixed(1) + 'M' } }
+    }
+  }
+});
+</script>
+
+<!-- ── CONCLUSION ── -->
+<h2>Conclusion</h2>
+
+<main>
+  <p>
+    Five years after the pandemic brought New York City's transit system to a near-standstill, the MTA's own data tells a story that goes beyond a simple recovery. The subway has climbed back to 75% of pre-pandemic ridership, but that remaining 25% may never return. The pandemic didn't just keep people home temporarily. It permanently rewired how millions of New Yorkers think about getting around. Remote and hybrid work eliminated the daily commute for a generation of office workers, and the rise of app-based rides, rentable e-bikes, and electric scooters gave city residents more options than ever before. Buses have felt this shift most acutely, stalling at just 59% of pre-pandemic ridership. For many riders, the convenience of a Citi Bike or a quick Uber simply replaced the crosstown bus. Combined, the subway and bus systems still carry 2.88 million fewer daily riders than they did in 2019.
+  </p>
+</main>
+
+<blockquote>
+  <p>
+    "Obviously things are so much different now with how many people work from home and new modes of transportation gaining popularity due to the pandemic, like electric bikes and the scooters, but the need for public transport seems a little different now." - Matthew O'Hagan, New York Resident
+  </p>
+</blockquote>
+
+<!-- ── SOURCES ── -->
+<h2>Sources</h2>
+
+<main>
+  <p>
+    MTA Daily Ridership Data (2020–2025). Metropolitan Transportation Authority Open Data. Retrieved via NYC Open Data. Data covers subway and bus daily ridership and percentage of comparable pre-pandemic day, March 2020 – January 2025.
+  </p>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p style="color: #c4a882; font-style: normal; padding: 0; margin: 0;">
+    Easton Heroux &nbsp;&middot;&nbsp; Syracuse University &nbsp;&middot;&nbsp; JNL 221 Final Project
+  </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcJLiuBqbZzBLEeXQlbhZD" crossorigin="anonymous"></script>
+</body>
+</html>
+ 
